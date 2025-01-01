@@ -7,15 +7,10 @@ from packaging import version
 def main() -> None:
     args = parse_args()
 
-    print(
-        version.parse(torch.__version__).release,
-        version.parse(args.torch_version).release,
-    )
+    found_version = version.parse(torch.__version__).release
+    specified_version = version.parse(args.torch_version).release
 
-    assert (
-        version.parse(torch.__version__).release
-        == version.parse(args.torch_version).release
-    )
+    assert found_version == specified_version, (found_version, specified_version)
 
 
 def parse_args() -> Namespace:
