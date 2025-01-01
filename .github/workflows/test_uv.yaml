@@ -1,0 +1,23 @@
+name: Test using uv
+on:
+  push:
+    branches:
+      - main
+jobs:
+  package:
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install uv (Windows)
+        id: windows_torch_installation
+        if: matrix.os == 'windows-latest'
+        run: |
+          powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+      - name: Install uv (Ubuntu & MacOS)
+        if: steps.windows_torch_installation.conclusion == 'skipped'
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
