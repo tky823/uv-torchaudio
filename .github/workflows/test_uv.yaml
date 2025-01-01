@@ -39,6 +39,7 @@ jobs:
         env:
           TORCH_VERSION: ${{ matrix.torch-version }}
         run: |
+          uv python install ${env:TORCH_VERSION}
           uv venv --python ${env:TORCH_VERSION}
       - name: Activate virtual environment (Ubuntu & MacOS)
         if: steps.windows_uv_installation.conclusion == 'skipped'
