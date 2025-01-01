@@ -36,7 +36,7 @@ jobs:
       - name: Install FFmpeg (MacOS)
         if: matrix.os == 'macos-13'
         run: |
-          brew install ffmpeg
+          brew install ffmpeg@6
           ffmpeg -version
       - name: Install FFmpeg (Windows)
         if: matrix.os == 'windows-latest'
