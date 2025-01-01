@@ -41,7 +41,7 @@ jobs:
       - name: Install FFmpeg (Windows)
         if: matrix.os == 'windows-latest'
         run: |
-          choco install ffmpeg -y
+          choco install ffmpeg --version=6.1.0
           ffmpeg -version
       - name: Overwrite torch version in requirements.txt (Windows)
         id: windows_torch_installation
