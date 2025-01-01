@@ -40,6 +40,7 @@ jobs:
           brew install ffmpeg@6
           homebrew_prefix="$(brew --prefix)"
           echo "export HOMEBREW_PREFIX=${homebrew_prefix}" >> "${GITHUB_ENV}"
+          echo "export DYLD_FALLBACK_LIBRARY_PATH=${homebrew_prefix}/opt/ffmpeg@6/lib:${DYLD_FALLBACK_LIBRARY_PATH}" >> "${GITHUB_ENV}"
           echo "${homebrew_prefix}/opt/ffmpeg@6/bin" >> "${GITHUB_PATH}"
       - name: Install FFmpeg (Windows)
         if: matrix.os == 'windows-latest'
