@@ -22,6 +22,10 @@ jobs:
             torch-version: "2.0.0"
           - python-version: "3.12"
             torch-version: "2.1.0"
+          - python-version: "3.13"
+            torch-version: "2.0.0"
+          - python-version: "3.13"
+            torch-version: "2.1.0"
     timeout-minutes: 5
     steps:
       - name: Checkout
