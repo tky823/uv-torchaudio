@@ -54,7 +54,7 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: |
           choco install ffmpeg --version=6.1.0
-          dir C:\ProgramData\chocolatey\lib\ffmpeg\tools\ffmpeg\bin
+          dir C:\ProgramData\chocolatey\lib\ffmpeg\tools\ffmpeg
       - name: Show version of FFmpeg
         run: |
           ffmpeg -version
