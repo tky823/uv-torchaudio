@@ -9,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [ubuntu-latest, macos-13, macos-latest, windows-latest]
         python-version: ["3.9", "3.10", "3.11", "3.12"]
         torch-version: ["2.0.0", "2.1.0", "2.2.0", "2.3.0"]
         exclude:
@@ -45,7 +45,6 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: |
           choco install ffmpeg --version=6.1.0
-          dir C:\ProgramData\chocolatey\lib\ffmpeg\tools\ffmpeg
       - name: Show version of FFmpeg
         run: |
           ffmpeg -version
