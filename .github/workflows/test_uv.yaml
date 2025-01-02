@@ -11,7 +11,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-13, macos-latest, windows-latest]
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
-        torch-version: ["2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.4.0"]
+        torch-version: ["2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.4.0", "2.5.0"]
         exclude:
           - os: windows-latest
           - os: macos-13
@@ -28,6 +28,10 @@ jobs:
             torch-version: "2.1.0"
           - python-version: "3.13"
             torch-version: "2.2.0"
+          - python-version: "3.13"
+            torch-version: "2.3.0"
+          - python-version: "3.13"
+            torch-version: "2.4.0"
     timeout-minutes: 5
     steps:
       - name: Checkout
